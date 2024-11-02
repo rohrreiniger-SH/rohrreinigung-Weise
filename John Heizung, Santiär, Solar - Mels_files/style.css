@@ -1,0 +1,1738 @@
+/*!
+Theme Name: John Heizung Sanitär Solar
+Theme URI: https://www.hsjohn.ch/
+Author: Lapala web solutions, Bad Ragaz
+Author URI: https://www.lapala.ch/
+Description: Custom Wordpress Theme, Design by DieEine Werbeagentur, Sargans
+Version: 1.0.0
+Tested up to: 5.4
+Requires PHP: 5.6
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: hsjohn
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned.
+
+hsjohn is based on Underscores https://underscores.me/, (C) 2012-2020 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Generic
+	- Normalize
+	- Box sizing
+# Base
+	- Typography
+	- Elements
+	- Links
+	- Forms
+## Layouts
+# Components
+	- Navigation
+	- Posts and pages
+	- Comments
+	- Widgets
+	- Media
+	- Captions
+	- Galleries
+# plugins
+	- Jetpack infinite scroll
+# Utilities
+	- Accessibility
+	- Alignments
+
+--------------------------------------------------------------*/
+
+/* poppins-regular - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  src: url('webfonts/poppins-v20-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('webfonts/poppins-v20-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('webfonts/poppins-v20-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('webfonts/poppins-v20-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('webfonts/poppins-v20-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('webfonts/poppins-v20-latin-regular.svg#Poppins') format('svg'); /* Legacy iOS */
+}
+/* poppins-500 - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  src: url('webfonts/poppins-v20-latin-500.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('webfonts/poppins-v20-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('webfonts/poppins-v20-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
+       url('webfonts/poppins-v20-latin-500.woff') format('woff'), /* Modern Browsers */
+       url('webfonts/poppins-v20-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('webfonts/poppins-v20-latin-500.svg#Poppins') format('svg'); /* Legacy iOS */
+}
+/* poppins-700 - latin */
+@font-face {
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 700;
+  src: url('webfonts/poppins-v20-latin-700.eot'); /* IE9 Compat Modes */
+  src: local(''),
+       url('webfonts/poppins-v20-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('webfonts/poppins-v20-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('webfonts/poppins-v20-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('webfonts/poppins-v20-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('webfonts/poppins-v20-latin-700.svg#Poppins') format('svg'); /* Legacy iOS */
+}
+
+/*--------------------------------------------------------------
+# Generic
+--------------------------------------------------------------*/
+
+/* Normalize
+--------------------------------------------- */
+
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+
+/* Document
+	 ========================================================================== */
+
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+html {
+	line-height: 1.15;
+	-webkit-text-size-adjust: 100%;
+}
+
+/* Sections
+	 ========================================================================== */
+
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+	margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+main {
+	display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+	font-size: 2em;
+	margin: 0.67em 0;
+}
+
+/* Grouping content
+	 ========================================================================== */
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+	box-sizing: content-box;
+	height: 0;
+	overflow: visible;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+/* Text-level semantics
+	 ========================================================================== */
+
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+	background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+	border-bottom: none;
+	text-decoration: underline;
+	text-decoration: underline dotted;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+	font-weight: 700;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+	font-family: monospace, monospace;
+	font-size: 1em;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+	font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+	font-size: 75%;
+	line-height: 0;
+	position: relative;
+	vertical-align: baseline;
+}
+
+sub {
+	bottom: -0.25em;
+}
+
+sup {
+	top: -0.5em;
+}
+
+/* Embedded content
+	 ========================================================================== */
+
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+	border-style: none;
+}
+
+/* Forms
+	 ========================================================================== */
+
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+	font-family: inherit;
+	font-size: 100%;
+	line-height: 1.15;
+	margin: 0;
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+	overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+	text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+	-webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+	border-style: none;
+	padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+	outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+	padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *		`fieldset` elements in all browsers.
+ */
+legend {
+	box-sizing: border-box;
+	color: inherit;
+	display: table;
+	max-width: 100%;
+	padding: 0;
+	white-space: normal;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+	vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+	overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type="checkbox"],
+[type="radio"] {
+	box-sizing: border-box;
+	padding: 0;
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+	height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type="search"] {
+	-webkit-appearance: textfield;
+	outline-offset: -2px;
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type="search"]::-webkit-search-decoration {
+	-webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+	-webkit-appearance: button;
+	font: inherit;
+}
+
+/* Interactive
+	 ========================================================================== */
+
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+	display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+	display: list-item;
+}
+
+/* Misc
+	 ========================================================================== */
+
+/**
+ * Add the correct display in IE 10+.
+ */
+template {
+	display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+[hidden] {
+	display: none;
+}
+
+/* Box sizing
+--------------------------------------------- */
+
+/* Inherit box-sizing to more easily change it's value on a component level.
+@link http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+/*--------------------------------------------------------------
+# Base
+--------------------------------------------------------------*/
+
+/* Typography
+--------------------------------------------- */
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: #000000;
+  	font-family: 'Poppins';
+	font-size: 18px;
+	line-height: 1.6;
+	letter-spacing: 0.05em;
+	font-weight: 500;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	clear: both;
+	font-weight: 700;
+	margin-top: 0;
+}
+
+h1, h2 {
+	font-weight: 500;
+	font-size: 34px;
+	line-height: 1.6;
+    margin-bottom: 40px !important;
+}
+
+.home h1 {
+    font-size: 46px;
+    margin-left: 36px;
+}
+
+#post-16 h1, #post-18 h1, .bildhalb h1, .bildhalb h2  {
+    margin-top: 121px;
+}
+
+h3 {
+    font-size: 38px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+h5 {
+	font-size: 1em;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: 30px;
+}
+
+.lead p {
+	line-height: 2;
+	font-weight: 500;
+	letter-spacing: 0.02em;
+}
+
+dfn,
+cite,
+em,
+i {
+	font-style: italic;
+}
+
+blockquote {
+	margin: 0 1.5em;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+pre {
+	background: #eee;
+	font-family: "Courier 10 Pitch", courier, monospace;
+	line-height: 1.6;
+	margin-bottom: 1.6em;
+	max-width: 100%;
+	overflow: auto;
+	padding: 1.6em;
+}
+
+code,
+kbd,
+tt,
+var {
+	font-family: monaco, consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
+
+abbr,
+acronym {
+	border-bottom: 1px dotted #666;
+	cursor: help;
+}
+
+mark,
+ins {
+	background: #fff9c0;
+	text-decoration: none;
+}
+
+big {
+	font-size: 125%;
+}
+
+/* Elements
+--------------------------------------------- */
+body {
+	background: #fff;
+}
+
+hr {
+	background-color: #ccc;
+	border: 0;
+	height: 1px;
+	margin-bottom: 1.5em;
+}
+
+ul,
+ol {
+	margin: 0 0 30px 0;
+	padding-left: 11px;
+}
+
+ul {
+	list-style:  "· ";
+}
+
+.wpb_wrapper ul li {
+    padding-left: 5px;
+    margin-bottom: 8px;
+}
+
+.wpb_wrapper ul li:last-child {
+    margin-bottom: 0px;
+}
+
+.wpb_wrapper li::marker {
+    content: "· ";
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: 700;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+img {
+	height: auto;
+	max-width: 100%;
+}
+
+figure {
+	margin: 1em 0;
+}
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+/* Links
+--------------------------------------------- */
+a {
+	color: #000000;
+	text-decoration: none;
+	transition: color ease-in-out 300ms;
+}
+
+a:visited {
+	color: #000000;
+}
+
+a:hover,
+a:focus,
+a:active {
+	color: #000000;
+	text-decoration: underline;
+}
+
+a:focus {
+	outline: thin dotted;
+}
+
+a:hover,
+a:active {
+	outline: 0;
+}
+
+/* Forms
+--------------------------------------------- */
+button, input[type="button"], input[type="reset"], input[type="submit"] {
+    border: 2px solid;
+    border-radius: 0;
+    background: #000;
+    color: #fff;
+    line-height: 1;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+	transition: color 300ms, background 300ms;
+}
+
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+    background: #fff;
+    color: #000;
+}
+
+button:active,
+button:focus,
+input[type="button"]:active,
+input[type="button"]:focus,
+input[type="reset"]:active,
+input[type="reset"]:focus,
+input[type="submit"]:active,
+input[type="submit"]:focus {
+    background: #fff;
+    color: #000;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+    color: #000;
+    border: 0;
+    border-radius: 0;
+    padding: 6px 0;
+    width: 100%;
+    max-width: 100%;
+    border-bottom: 1px solid #000;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus {
+	color: #000;
+	outline: thin dotted;
+}
+
+select {
+    width: 100%;
+	border: 0;
+    border-bottom: 1px solid #000;
+}
+
+textarea {
+	width: 100%;
+    height: 50px;
+	border: 0;
+    border-bottom: 1px solid #000;
+    margin-top: 100px;
+}
+
+
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #000;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #000;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: #000;
+}
+
+/*--------------------------------------------------------------
+# Layouts
+--------------------------------------------------------------*/
+
+/*--------------------------------------------------------------
+# Components
+--------------------------------------------------------------*/
+
+main#primary {
+    margin-top: 160px;
+}
+
+
+.site-header {
+    padding-top: 66px;
+    padding-bottom: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #fff;
+    z-index: 2;
+	transition: padding ease-in 300ms;
+}
+
+.site-header.small {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+
+.site-branding a {
+    display: none;
+    width: 168px;
+    height: 85px;
+    background-image: url(images/john-heizung-sanitaer-solar-logo.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all ease-in 300ms;
+}
+
+.small .site-branding a {
+    height: 50px;
+    width: 100px;
+}
+
+
+/* Navigation
+--------------------------------------------- */
+.main-navigation {
+}
+
+.main-navigation ul {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+	list-style: none;
+    margin: 0 auto;
+	padding-left: 0;
+	max-width: 960px;
+	width: 100%;
+}
+
+.home .main-navigation ul {
+    max-width: 730px;
+}
+
+.main-navigation ul ul {
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	float: left;
+	position: absolute;
+	top: 100%;
+	left: -999em;
+	z-index: 99999;
+}
+
+.main-navigation ul ul ul {
+	left: -999em;
+	top: 0;
+}
+
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+	display: block;
+	left: auto;
+}
+
+.main-navigation ul ul a {
+	width: 200px;
+}
+
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+	left: auto;
+}
+
+.main-navigation li {
+	position: relative;
+}
+
+.main-navigation li:first-child a {
+	display: block;
+	width: 168px;
+	height: 85px;
+	background-image: url(images/john-heizung-sanitaer-solar-logo.svg);
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	text-indent: -999em;
+	color: transparent;
+	transition: height ease-in 300ms;
+}
+
+.small .main-navigation li:first-child a {
+    height: 60px;
+}
+
+.home .main-navigation li:first-child {
+    width: 0;
+    visibility: hidden;
+    z-index: -1;
+}
+
+.main-navigation a {
+	display: block;
+	text-decoration: none;
+	color: #000;
+}
+
+.main-navigation a:hover,
+.main-navigation .current_page_item a,
+.heizung a:hover {
+    color: rgb(232,64,36);
+}
+
+.sanitaer a:hover,
+.main-navigation .current_page_item.sanitaer a {
+    color: rgb(0,118,192);
+}
+
+.solar a:hover,
+.main-navigation .current_page_item.solar a {
+    color: rgb(232,181,0);
+}
+
+
+
+.site-main .comment-navigation,
+.site-main
+.posts-navigation,
+.site-main
+.post-navigation {
+	margin: 0 0 1.5em;
+}
+
+.comment-navigation .nav-links,
+.posts-navigation .nav-links,
+.post-navigation .nav-links {
+	display: flex;
+}
+
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+	flex: 1 0 50%;
+}
+
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+	text-align: end;
+	flex: 1 0 50%;
+}
+
+/* Posts and pages
+--------------------------------------------- */
+.sticky {
+	display: block;
+}
+
+.post,
+.page {
+    margin: 0;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+    margin: 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+/* Comments
+--------------------------------------------- */
+.comment-content a {
+	word-wrap: break-word;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+/* Widgets
+--------------------------------------------- */
+.widget {
+    margin: 0;
+}
+
+.widget select {
+	max-width: 100%;
+}
+
+/* Media
+--------------------------------------------- */
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+	border: none;
+	margin-bottom: 0;
+	margin-top: 0;
+	padding: 0;
+}
+
+/* Make sure logo link wraps around logo image. */
+.custom-logo-link {
+	display: inline-block;
+}
+
+/* Captions
+--------------------------------------------- */
+.wp-caption {
+	margin-bottom: 1.5em;
+	max-width: 100%;
+}
+
+.wp-caption img[class*="wp-image-"] {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.wp-caption .wp-caption-text {
+	margin: 0.8075em 0;
+}
+
+.wp-caption-text {
+	text-align: center;
+}
+
+/* Galleries
+--------------------------------------------- */
+.gallery {
+	margin-bottom: 1.5em;
+	display: grid;
+	grid-gap: 1.5em;
+}
+
+.gallery-item {
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+}
+
+.gallery-columns-2 {
+	grid-template-columns: repeat(2, 1fr);
+}
+
+.gallery-columns-3 {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.gallery-columns-4 {
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.gallery-columns-5 {
+	grid-template-columns: repeat(5, 1fr);
+}
+
+.gallery-columns-6 {
+	grid-template-columns: repeat(6, 1fr);
+}
+
+.gallery-columns-7 {
+	grid-template-columns: repeat(7, 1fr);
+}
+
+.gallery-columns-8 {
+	grid-template-columns: repeat(8, 1fr);
+}
+
+.gallery-columns-9 {
+	grid-template-columns: repeat(9, 1fr);
+}
+
+.gallery-caption {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Plugins
+--------------------------------------------------------------*/
+
+/* Jetpack infinite scroll
+--------------------------------------------- */
+
+/* Hide the Posts Navigation and the Footer when Infinite Scroll is in use. */
+.infinite-scroll .posts-navigation,
+.infinite-scroll.neverending .site-footer {
+	display: none;
+}
+
+/* Re-display the Theme Footer when Infinite Scroll has reached its end. */
+.infinity-end.neverending .site-footer {
+	display: block;
+}
+
+/*--------------------------------------------------------------
+# Utilities
+--------------------------------------------------------------*/
+
+/* Accessibility
+--------------------------------------------- */
+
+/* Text meant only for screen readers. */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	clip-path: none;
+	color: #21759b;
+	display: block;
+	font-size: 0.875rem;
+	font-weight: 700;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+}
+
+/* Do not show the outline on the skip link target. */
+#primary[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+/* Alignments
+--------------------------------------------- */
+.alignleft {
+
+	/*rtl:ignore*/
+	float: left;
+
+	/*rtl:ignore*/
+	margin-right: 1.5em;
+	margin-bottom: 1.5em;
+}
+
+.alignright {
+
+	/*rtl:ignore*/
+	float: right;
+
+	/*rtl:ignore*/
+	margin-left: 1.5em;
+	margin-bottom: 1.5em;
+}
+
+.aligncenter {
+	clear: both;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 1.5em;
+}
+
+
+
+
+
+
+
+/*--------------------------------------------------------------
+# Allgemein
+--------------------------------------------------------------*/
+div#page {
+    max-width: 2000px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container {
+	width: 100%;
+	max-width: 1200px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+
+.entry-content {
+    padding-top: 1px;
+}
+
+.vc_row {
+	margin-top: 50px;
+	margin-bottom: 120px;
+}
+
+.vc_row.nomargin
+.vc_row.vc_inner {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.wpb_button, .wpb_content_element, ul.wpb_thumbnails-fluid>li {
+    margin-bottom: 0 !important;
+}
+
+.vc_col-has-fill>.vc_column-inner, .vc_row-has-fill+.vc_row-full-width+.vc_row>.vc_column_container>.vc_column-inner, .vc_row-has-fill+.vc_row>.vc_column_container>.vc_column-inner, .vc_row-has-fill>.vc_column_container>.vc_column-inner {
+    padding-top: 0 !important;
+}
+
+
+
+
+/* grosses Bild oben */
+.bildhalb {
+	min-height: 700px;
+}
+
+.vc_parallax.bildhalb .vc_parallax-inner {
+    width: 50vw;
+    right: 0;
+    left: auto;
+}
+
+
+
+.logo-gross {
+    width: 80%;
+    max-width: 350px;
+    height: 178px;
+	background-image: url(images/john-heizung-sanitaer-solar-logo.svg);
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+    margin-top: 40px;
+}
+
+
+
+
+
+
+
+/*--------------------------------------------------------------
+# Leistungen Startseite
+--------------------------------------------------------------*/
+.leistungen-wrap {
+    height: 660px;
+    display: flex;
+    align-items: center;
+}
+
+
+.leistungen-links {
+    width: 33.33%;
+}
+
+.leistung-titel.active, .leistung-titel:hover {
+    color: red;
+}
+
+.leistung-titel {
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 40px;
+    cursor: pointer;
+    transition: all ease 200ms;
+}
+
+div#leistung-79:hover,
+div#leistung-79.active {
+    color: rgb(0,118,192);
+}
+.leistung-text.leistung-79,
+.leistung-text.leistung-79:after {
+	background: rgb(0,118,192);
+}
+
+div#leistung-78:hover,
+div#leistung-78.active {
+    color: rgb(232,181,0);
+}
+
+.leistung-text.leistung-78,
+.leistung-text.leistung-78:after {
+	background: rgb(232,181,0);
+}
+
+.leistung-text.active {
+    opacity: 1;
+	z-index: 1;
+}
+
+.leistung-text {
+    position: absolute;
+    opacity: 0;
+	z-index: -1;
+    transition: all ease 200ms;
+    left: 33.33%;
+    top: 0;
+    width: 66.66%;
+    background: rgb(232,64,36);
+    color: #fff;
+    padding: 150px 10px 150px 150px;
+}
+
+.leistung-text:after {
+    content: " ";
+    position: absolute;
+    height: 100%;
+    background: rgb(232,64,36);
+    top: 0;
+    right: -1000px;
+    width: 1000px;
+}
+
+.leistungen-text p {
+	max-width: 700px;
+}
+
+
+a.leistung-link {
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 22px;
+	margin-top: 60px;
+}
+
+a.leistung-link:hover {
+    color: #000;
+	text-decoration: none;
+}
+
+a.leistung-link:hover svg path{
+    stroke: #000;
+}
+
+span.pfeil {
+    width: 42px;
+    height: 20px;
+    display: inline-block;
+}
+
+span.pfeil svg{
+    width: 100%;
+    height: auto;
+}
+
+span.pfeil svg path {
+	transition: all ease-in 300ms;
+}
+
+/*--------------------------------------------------------------
+# Projekt Grid
+--------------------------------------------------------------*/
+.objekte-wrap {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 30px;
+    margin-top: -50px;
+}
+
+.team .objekte-wrap {
+grid-template-columns: repeat(3, 1fr);
+}
+
+.objekt-entry {
+    margin-bottom: 40px;
+}
+
+.objekttitel {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.ma__name {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.ortschaft,
+.ma__funktion {
+	letter-spacing: 0.02em;
+}
+
+
+
+
+
+
+.nivo-lightbox-theme-default .nivo-lightbox-close {
+    width: 20px;
+    height: 20px;
+}
+
+/*--------------------------------------------------------------
+# Kontaktformular
+--------------------------------------------------------------*/
+
+.partner-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.partner-entry img {
+	height: 50px;
+	width: auto;
+    max-width: 200px;
+}
+
+/*--------------------------------------------------------------
+# Kontaktformular
+--------------------------------------------------------------*/
+.grecaptcha-badge {
+    display: none !important;
+}
+
+form.wpcf7-form {
+    max-width: 590px;
+}
+
+.form-grid {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 100%;
+}
+
+.form-row p {
+    margin: 0;
+}
+
+.wpcf7-submit {
+    margin-top: 30px;
+}
+
+
+.wpcf7 form .wpcf7-response-output {
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    color: #db4525;
+    font-size: 0.8em;
+}
+
+.wpcf7-not-valid-tip {
+    color: #db4525;
+    font-size: 0.8em;
+}
+
+
+
+
+/*--------------------------------------------------------------
+# Footer
+--------------------------------------------------------------*/
+.site-footer {
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: flex;
+    align-items: flex-end;
+}
+
+.footer-left {
+    width: 100%;
+    max-width: 470px;
+}
+
+.footer-slogan {
+    font-size: 46px;
+    line-height: 1.5;
+    font-weight: 500;
+    margin-bottom: -19px;
+}
+
+.footer-right {
+    display: flex;
+    align-items: flex-end;
+	gap: 35px;
+}
+
+.footer-logo {
+    width: 192px;
+    height: 97px;
+	background-image: url(images/john-heizung-sanitaer-solar-logo.svg);
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.footer-address p {
+    margin-bottom: -8px;
+}
+
+.footer-social {
+   	line-height: 0;
+}
+
+.footer-social a {
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+	background-image: url(images/facebook.svg);
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.footer-social a:hover {
+	opacity: 0.7;
+}
+
+
+.site-info {
+	font-size: 12px;
+	margin-top: 80px;
+    padding-bottom: 50px;
+}
+a.impressum {
+    margin-left: 30px;
+}
+
+
+
+
+
+
+
+
+/*---------------------
+# Mobile Menu
+------------------------*/
+.toggle-nav {
+    display:none;
+}
+.toggle-nav {
+    width: 40px;
+    height: 40px;
+    float: right;
+    cursor: pointer;
+    position: relative;
+    padding: 10px;
+    z-index: 99999;
+    margin-left: auto;
+    margin-right: 30px;
+}
+.toggle-nav span, .toggle-nav span:before, .toggle-nav span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 2px;
+    width: 35px;
+    background: #000000;
+    position: absolute;
+    display: block;
+    content: '';
+    top: 20px;
+    left: 5px;
+}
+
+.toggle-nav span:before {
+  top: -10px;
+    left: 0;
+}
+.toggle-nav span:after {
+  bottom: -10px; 
+    left: 0;
+    top: initial;
+}
+.toggle-nav span, .toggle-nav span:before, .toggle-nav span:after {
+  transition: all 500ms ease-in-out;
+}
+.toggle-nav.active span {
+  background-color: transparent;
+}
+.toggle-nav.active span:before, .toggle-nav.active span:after {
+  	top: 0;
+    background: #000000;
+}
+.toggle-nav.active span:before {
+  transform: rotate(45deg);
+}
+.toggle-nav.active span:after {
+  transform: rotate(-45deg);
+}
+
+
+
+html.menuopen,
+body.menuopen {
+    overflow: hidden;
+}
+
+.menuopen .main-navigation {
+    visibility: visible;
+    opacity: 1;
+    z-index: 8;
+}
+
+
+
+
+
+
+/*--------------------------------------------------------------
+# Media Queries
+--------------------------------------------------------------*/
+
+
+@media screen and (max-width: 1100px) {
+	.footer-slogan { font-size: 30px; margin-bottom: -13px;}
+	.footer-left {width: auto;margin-right: 50px;}
+	.leistungen-wrap { height: 750px;}
+}
+
+@media screen and (max-width: 900px) {
+	
+	.bildhalb .vc_col-sm-6 { width: 100%;}
+	.vc_parallax.bildhalb .vc_parallax-inner {
+    	float: left;
+		width: 100%;
+		right: auto;
+		left: auto;
+		position: relative;
+		height: 80vh !important;
+		margin-top: 60px;
+	}
+	
+	.objekte-wrap { grid-template-columns: repeat(3, 1fr); grid-gap: 15px;}
+	
+	.footer-content { display: block;}
+	.footer-left { width: 100%; margin-right: 0; max-width: 100%;}
+	.footer-slogan {margin-bottom: 60px;}
+	.footer-right { justify-content: space-between;}
+}
+
+@media screen and (max-width: 767px) {
+	.site-branding a, .toggle-nav { display: block;}
+	.home .site-branding a {display: none;}
+	.site-header { padding-top: 10px;}
+	.site-header .container { display: flex; align-items: center;}
+	.main-navigation {
+		position: fixed;
+		top: 0;
+		left: 0;
+		visibility: hidden;
+		opacity: 0;
+		z-index: -1;
+		width: 100%;
+		height: 100vh;
+		background: #ffffff;
+    	padding: 40px 15px;
+		display: block;
+		float: none; 
+		margin: 0;
+	}
+	
+	.main-navigation ul {
+		display: block;
+		text-align: center;
+	}
+	.main-navigation li {
+		display: block;
+		text-align: center;
+		margin: 25px 0;
+	}
+	.main-navigation li:first-child a {
+		display: inline-block;
+		margin-bottom: 60px;
+	}
+	.home .main-navigation li:first-child {
+		width: auto;
+		visibility: visible;
+		z-index: 1;
+	}
+	.main-navigation a {
+		font-size: 26px;
+	}
+	.main-navigation ul ul { transition: none;}
+	.main-navigation ul ul li {
+		margin: 0 0 5px 0 !important;
+	}
+	.main-navigation ul ul a {
+		text-align: center;
+		width: 100%;
+		font-size: 20px;
+	}
+	.menu-item-has-children a {
+		padding-right: 0;
+	}
+	.menu-hauptmenu-container {
+		overflow: auto;
+		height: 100vh;
+		padding-top: 120px;
+		padding-bottom: 120px;
+	}
+	
+	body, button, input, select, optgroup, textarea { font-weight: 400;}
+	#post-16 h1, #post-18 h1, .bildhalb h1, .bildhalb h2  {  margin-top: 0px;}
+	h1, h2 {font-size: 28px;}
+	.home h1 {font-size: 28px;margin-left: 32px;}
+	
+	.leistungen-wrap { height: auto; display: block;}
+	.leistungen-links {width: 100%;}
+	.leistung-titel { display: none;}
+	.leistung-text {
+		position: relative;
+		left: -15px;
+		top: 0;
+		width: 100%;
+		padding: 60px 30px;
+		opacity: 1 !important;
+		z-index: 1 !important;
+		margin-bottom: 60px;
+	}
+	
+	.leistung-text:last-child {margin-bottom: 0px;	}
+	
+	.wpcf7 { margin-top: 60px;}
+	.form-grid { grid-template-columns: 1fr;}
+	
+	
+	.objekte-wrap, .team .objekte-wrap { grid-template-columns: repeat(2, 1fr); word-break: break-word;font-size: 0.8em;}
+	
+	.partner-wrap { flex-direction: column;}
+	
+	.site-footer { margin-top: 0;}
+	.footer-right { display: block;}
+	.footer-logo, .footer-address { margin-bottom: 30px;}
+	a.impressum { display: block;margin-left: 0px;}
+}

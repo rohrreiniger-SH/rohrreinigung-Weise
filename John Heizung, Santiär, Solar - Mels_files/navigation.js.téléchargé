@@ -1,0 +1,33 @@
+$(document).ready(function(event) {	
+	
+	$(window).on('load scroll', function(event){
+	   var st = $(this).scrollTop();
+	   if (st > 60){
+		   $('#masthead').addClass('small');
+	   } else {
+		   $('#masthead').removeClass('small');
+	   }
+	});
+	
+	$('.toggle-nav').click(function(e) {
+        $(this).toggleClass('active');
+        $('html, body').toggleClass('menuopen');
+ 
+        e.preventDefault();
+    });
+	
+	$('.leistung-titel').click(function(e) {
+        $('.leistung-titel.active').removeClass('active');
+        $('.leistung-text.active').removeClass('active');
+        $(this).addClass('active');
+		var id = $(this).attr('id');
+		$('.leistung-text.' + id).addClass('active');
+ 
+        e.preventDefault();
+		
+		if ($(window).width() < 900) {
+			$('html, body').animate({scrollTop: $(this).offset().top - 100 }, 'slow');
+		}
+    });
+	
+});
